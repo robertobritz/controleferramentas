@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhe do Produto {{ $product->name }}")
+@section('title', "Detalhe da Máquina {{ $machine->name }}")
 
 @section('content_header')
-    <h1>Detalhes da Máquina <b>{{ $product->name }}</b></h1>
+    <h1>Detalhes da Máquina <b>{{ $machine->name }}</b></h1>
 
 @stop
 
@@ -12,24 +12,20 @@
     <div class="card">
         <div class="card-body">
             <ul>
-                <img img src="{{ url("storage/$product->image") }}" alt="{{ $product->title}}" style="max-width:200px">
                 <li>
-                    <strong>Título: </strong> {{ $product->title}}
+                    <strong>Nome: </strong> {{ $machine->name}}
                 </li>
                 <li>
-                    <strong>Flag: </strong> {{ $product->flag}}
-                </li>
-                <li>
-                    <strong>Descrição: </strong> {{ $product->description}}
+                    <strong>Descrição: </strong> {{ $machine->description}}
                 </li>
             </ul>
 
-            @include('admin.includes.alerts')
+            @include('pages.includes.alerts')
 
-            <form action="{{ route('products.destroy', $product->id)}}" method="POST">
+            <form action="{{ route('machines.destroy', $machine->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-lock"></i>DELETAR O PRODUTO {{ $product->title}}</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-lock"></i>DELETAR O PRODUTO {{ $machine->name}}</button>
             </form>
         </div>
     </div>

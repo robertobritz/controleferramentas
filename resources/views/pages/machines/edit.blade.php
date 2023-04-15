@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Editar o Produto {$product->title}")
+@section('title', "Editar a Máquina {$machine->name}")
 
 @section('content_header')
-    <h1>Editar o Produto {{$product->title}}</h1>
+    <h1>Editar a Máquina {{$machine->name}}</h1>
 
 @stop
 
@@ -11,11 +11,11 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('products.update', $product->id) }}" class="form" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('machines.update', $machine->id) }}" class="form" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                @include('admin.pages.products._partials.form')
+                @include('pages.machines.__partials.form')
         </div>
     </div>
 @endsection

@@ -1,11 +1,9 @@
-@if ($errors->any())
-    <div class="alert alert-warning">
-        @foreach ($errors->all() as $error)
-        <p>{{ $error }}</p>
-        @endforeach 
-    </div>  
-@endif
+@include('pages.includes.alerts')
 @csrf
+<div class="form-group">
+    <label>Nome:</label>
+    <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $machine->name ?? old('name')}}">
+</div>
 <div class="form-group">
     <label>Descrição:</label>
     <input type="text" name="description" class="form-control" placeholder="Descrição" value="{{ $machine->description ?? old('description')}}">

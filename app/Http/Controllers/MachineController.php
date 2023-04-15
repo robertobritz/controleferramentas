@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateMachine;
 use App\Models\Machine;
 use Illuminate\Http\Request;
 
@@ -30,15 +31,17 @@ class MachineController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.machines.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateMachine $request)
     {
-        //
+        $this->repository->create($request->all());
+
+        return redirect()->route('machines.index');
     }
 
     /**
@@ -46,7 +49,11 @@ class MachineController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if (!$machine = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        return view('pages.machines.show', compact('machine'));
     }
 
     /**
@@ -54,15 +61,25 @@ class MachineController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        if (!$machine = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+        
+        return view('pages.machines.edit', compact('machine'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreUpdateMachine $request, string $id)
     {
-        //
+        if (!$machine = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        $machine->update($request->all());
+
+        return redirect()->route('machines.index');
     }
 
     /**
@@ -70,6 +87,12 @@ class MachineController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (!$machine = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+        
+        $machine->delete();
+
+        return redirect()->route('machines.index');
     }
 }

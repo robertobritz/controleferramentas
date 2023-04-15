@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar Novo Produto')
+@section('title', 'Cadastrar Nova Máquina')
 
 @section('content_header')
-    <h1>Cadastrar Novo Produto</h1>
+    <h1>Cadastrar Nova Máquina</h1>
 
 @stop
 
@@ -11,10 +11,10 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('products.store') }}" class="form" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('machines.store') }}" class="form" method="POST" enctype="multipart/form-data">
                 @csrf
                 
-                @include('admin.pages.products._partials.form')
+                @include('pages.machines.__partials.form')
         </div>
     </div>
 @endsection

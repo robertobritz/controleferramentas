@@ -19,8 +19,9 @@
         <table class="table table-condensed">
            <thead>
             <tr>
+                <th>Nome Máquina</th>
                 <th>Descrição Máquina</th>
-                <th width="450px">Ação</th>
+                <th width="250px">Ação</th>
             </tr>
             </thead>
             <tbody>
@@ -28,6 +29,9 @@
                     <tr>
                         <td>
                             {{ $machine->name}}
+                        </td>
+                        <td>
+                            {{ $machine->description}}
                         </td>
                         <td style="width=10px">
                             <a href="{{ route('machines.edit', $machine->id) }}" class="btn btn-info">Edit</a>
