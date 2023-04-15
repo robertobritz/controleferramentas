@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::any('machines/search', 'App\Http\Controllers\Admin\ACL\RoleController@search')->name('machines.search')->middleware('auth');
+Route::resource('machines', 'App\Http\Controllers\MachineController')->middleware('auth');
+
 Route::get('/', function () {
     return view('welcome');
 });

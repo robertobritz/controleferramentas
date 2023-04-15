@@ -296,9 +296,9 @@ return [
             'topnav_right' => true,
         ],
         [
-            'text' => 'Empresas',
-            'url'  => 'admin/tenants',
-            'icon' => 'fas fa-building',
+            'text' => 'Máquinas',
+            'url'  => 'machines',
+            'icon' => 'fas fa-list-alt',
             // 'can'  => 'tenants',
         ],
         [
