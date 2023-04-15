@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Tools Routes
+Route::any('tools/search', 'App\Http\Controllers\ToolController@search')->name('tools.search')->middleware('auth');
+Route::resource('tools', 'App\Http\Controllers\ToolController')->middleware('auth');
+
+//Machines routes
 Route::any('machines/search', 'App\Http\Controllers\MachineController@search')->name('machines.search')->middleware('auth');
 Route::resource('machines', 'App\Http\Controllers\MachineController')->middleware('auth');
 

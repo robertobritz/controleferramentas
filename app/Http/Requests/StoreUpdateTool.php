@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateMachine extends FormRequest
+class StoreUpdateTool extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,10 @@ class StoreUpdateMachine extends FormRequest
         
 
         return [
-            'name' => "required|min:3|max:255|unique:machines,name,{$id},id",
+            'name' => "required|min:3|max:255|unique:tools,name,{$id},id",
             'description' => 'nullable|min:3|max:255',
+            'code_system' => 'required|min:3|max:255',
+            'supplier' => 'nullable|min:3|max:255',
         ];
     }
 }

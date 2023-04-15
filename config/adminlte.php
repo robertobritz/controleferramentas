@@ -302,15 +302,15 @@ return [
             // 'can'  => 'tenants',
         ],
         [
-            'text' => 'Planos',
-            'url'  => 'admin/plans',
-            'icon' => 'fas fa-list-alt',
+            'text' => 'Ferramentas',
+            'url'  => 'tools',
+            'icon' => 'fas fa-tools',
             // 'can'  => 'plans',
         ],
 
         [
-            'text' => 'Perfis',
-            'url'  => 'admin/profiles',
+            'text' => 'Magazines',
+            'url'  => 'magazine',
             'icon' => 'fas fa-address-book',
             // 'can'  => 'profiles',
         ],
