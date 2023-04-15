@@ -16,6 +16,9 @@
                     <strong>ID: </strong> {{ $magazine->id}}
                 </li>
                 <li>
+                    <strong>Nome da Máquina: </strong> {{ $magazine->machine_name}}
+                </li>
+                <li>
                     <strong>Máquina ID: </strong> {{ $magazine->machine_id}}
                 </li>
                 <li>

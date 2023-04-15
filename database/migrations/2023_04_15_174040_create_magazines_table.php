@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('magazines', function (Blueprint $table) {
             $table->id();
             $table->integer('positions')->require;
+            $table->string('machine_name')->require;
             $table->unsignedBigInteger('machine_id')->require;
             $table->timestamps();
 

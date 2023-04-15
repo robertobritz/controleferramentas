@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Magazines <a href="{{ route('magazines.create')}}" class="btn btn-dark">ADD FERRAMENTA</a></h1>
+    {{-- <h1>Magazines <a href="{{ route('magazines.create')}}" class="btn btn-dark">ADD FERRAMENTA</a></h1> --}}
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
            <thead>
             <tr>
                 <th>ID</th>
-                <th>Máquina ID</th>
+                <th>Nomes da Máquina</th>
                 <th>Tamanho Magazine</th>
                 <th width="250px">Ação</th>
             </tr>
@@ -32,7 +32,7 @@
                             {{ $magazine->id}}
                         </td>
                         <td>
-                            {{ $magazine->machine_id}}
+                            {{ $magazine->machine_name}}
                         </td>
                         <td>
                             {{ $magazine->positions}}

@@ -23,7 +23,8 @@ class StoreUpdateMagazine extends FormRequest
     {
         return [
             'positions' => 'required',
-            'machine_id' => 'required',
+            'machine_id' => 'required|unique:magazines,machine_id',
+            'machine_name' => 'required',
         ];
     }
 }

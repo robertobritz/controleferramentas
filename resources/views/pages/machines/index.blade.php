@@ -34,9 +34,9 @@
                             {{ $machine->description}}
                         </td>
                         <td style="width=10px">
-                            <a href="{{ route('machines.edit', $machine->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('machines.show', $machine->id) }}" class="btn btn-warning">VER</a>
-                            <a href="{{ route('magazines.create', $machine->id) }}" class="btn btn-warning">VER</a>
+                            <a href="{{ route('magazines.create', $machine) }}" class="btn btn-success">Magazine</a>
+                            <a href="{{ route('machines.edit', $machine->id) }}" class="btn btn-info">Editar</a>
+                            <a href="{{ route('machines.show', $machine->id) }}" class="btn btn-warning">Ver</a>
                         </td>
                     </tr>
                 @endforeach

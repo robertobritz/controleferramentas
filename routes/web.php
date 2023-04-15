@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Magazine Routes
-Route::any('magazines/search', 'App\Http\Controllers\MagazineController@search')->name('magazines.search')->middleware('auth');
-Route::resource('magazines', 'App\Http\Controllers\MagazineController')->middleware('auth');
+
+Route::get('magazines/create/{machine}', [MagazineController::class, 'create'])->name('magazines.create')->middleware('auth'); //correto
+Route::put('magazines/{url}', [MagazineController::class, 'update'])->name('magazines.update');
+Route::get('magazines/{url}/edit', [MagazineController::class, 'edit'])->name('magazines.edit');
+Route::any('magazines/search', [MagazineController::class, 'search'])->name('magazines.search');
+Route::delete('magazines/{url}', [MagazineController::class, 'destroy'])->name('magazines.destroy');
+Route::get('magazines/{url}', [MagazineController::class, 'show'])->name('magazines.show');
+Route::post('magazines', [MagazineController::class, 'store'])->name('magazines.store');
+Route::get('magazines', [MagazineController::class, 'index'])->name('magazines.index');
+
 
 
 // Tools Routes

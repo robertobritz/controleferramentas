@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateMagazine;
+use App\Models\Machine;
 use App\Models\Magazine;
 use Illuminate\Http\Request;
 
@@ -27,9 +28,9 @@ class MagazineController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Machine $machine)
     {
-        return view('pages.magazines.create');
+        return view('pages.magazines.create', compact('machine'));
     }
 
     /**
@@ -37,7 +38,15 @@ class MagazineController extends Controller
      */
     public function store(StoreUpdateMagazine $request)
     {
-        $this->repository->create($request->all());
+        //dd($request->all());
+        
+        //$this->repository->create($request->all());
+
+        $magazine = new Magazine;
+        $magazine->positions = $request->positions;
+        $magazine->machine_id = $request->machine_id;
+        $magazine->machine_name = $request->machine_name; // Adiciona o valor do campo machine_name
+        $magazine->save();
 
         return redirect()->route('magazines.index');
     }
