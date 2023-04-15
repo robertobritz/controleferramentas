@@ -13,9 +13,6 @@
         <div class="card-body">
             <ul>
                 <li>
-                    <strong>Nome: </strong> {{ $tool->name}}
-                </li>
-                <li>
                     <strong>Descrição: </strong> {{ $tool->description}}
                 </li>
                 <li>

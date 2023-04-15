@@ -13,4 +13,9 @@ class Machine extends Model
         'name',
         'description'
     ];
+
+    public function magazine()
+    {
+        return $this->belongsTo(Magazine::class);
+    }
 }

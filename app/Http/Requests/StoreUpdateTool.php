@@ -25,8 +25,7 @@ class StoreUpdateTool extends FormRequest
         
 
         return [
-            'name' => "required|min:3|max:255|unique:tools,name,{$id},id",
-            'description' => 'nullable|min:3|max:255',
+            'description' => "required|min:3|max:255|unique:tools,description,{$id},id",
             'code_system' => 'required|min:3|max:255',
             'supplier' => 'nullable|min:3|max:255',
         ];

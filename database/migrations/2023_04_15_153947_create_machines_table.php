@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('description')->nullable();
+            $table->unsignedBigInteger('magazine_id')->nullable();
             $table->timestamps();
+
         });
     }
 

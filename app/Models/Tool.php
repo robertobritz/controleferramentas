@@ -10,7 +10,6 @@ class Tool extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'description',
         'code_system',
         'supplier',

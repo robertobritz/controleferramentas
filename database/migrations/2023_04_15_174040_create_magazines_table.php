@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tools', function (Blueprint $table) {
+        Schema::create('magazines', function (Blueprint $table) {
             $table->id();
-            $table->string('description')->nullable();
-            $table->string('code_system')->nullable();
-            $table->string('supplier')->nullable();
+            $table->unsignedBigInteger('machine_id')->require;
             $table->timestamps();
+
+            $table->foreign('machine_id')
+                        ->references('id')
+                        ->on('machines');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tools');
+        Schema::dropIfExists('magazines');
     }
 };

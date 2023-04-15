@@ -19,7 +19,6 @@
         <table class="table table-condensed">
            <thead>
             <tr>
-                <th>Nome Ferramenta</th>
                 <th>Descrição</th>
                 <th>Código Sistema</th>
                 <th>Fornecedor</th>
@@ -29,9 +28,6 @@
             <tbody>
                 @foreach ($tools as $tool)
                     <tr>
-                        <td>
-                            {{ $tool->name}}
-                        </td>
                         <td>
                             {{ $tool->description}}
                         </td>
