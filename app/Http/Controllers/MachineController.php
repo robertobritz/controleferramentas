@@ -64,7 +64,7 @@ class MachineController extends Controller
         if (!$machine = $this->repository->find($id)) {
             return redirect()->back();
         }
-        
+
         return view('pages.machines.edit', compact('machine'));
     }
 
@@ -94,5 +94,21 @@ class MachineController extends Controller
         $machine->delete();
 
         return redirect()->route('machines.index');
+    }
+
+    public function search(Request $request)
+    {
+        $filters = $request->only('filter');
+        //dd($filters);
+        $machines = $this->repository
+                            ->where(function($query) use ($request) {
+                                if ($request->filter) {
+                                    $query->where('name','LIKE',"%{$request->filter}%");
+                                }
+                            })
+                            ->latest()
+                            ->paginate();
+
+        return view('pages.machines.index', compact('machines', 'filters'));
     }
 }
