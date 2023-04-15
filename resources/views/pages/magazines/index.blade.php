@@ -3,13 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Máquinas <a href="{{ route('machines.create')}}" class="btn btn-dark">ADD MÁQUINA</a></h1>
+    <h1>Magazines <a href="{{ route('magazines.create')}}" class="btn btn-dark">ADD FERRAMENTA</a></h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <form action="{{ route('machines.search')}}"  class="form form-inline">
+        <form action="{{ route('magazines.search')}}"  class="form form-inline">
             @csrf 
             <input type="text" name='filter' placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? ''}}">
             <button type="submit" class="btn btn-dark">Filtrar</button>
@@ -19,24 +19,26 @@
         <table class="table table-condensed">
            <thead>
             <tr>
-                <th>Nome Máquina</th>
-                <th>Descrição Máquina</th>
+                <th>ID</th>
+                <th>Máquina ID</th>
+                <th>Tamanho Magazine</th>
                 <th width="250px">Ação</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($machines as $machine)
+                @foreach ($magazines as $magazine)
                     <tr>
                         <td>
-                            {{ $machine->name}}
+                            {{ $magazine->id}}
                         </td>
                         <td>
-                            {{ $machine->description}}
+                            {{ $magazine->machine_id}}
+                        </td>
+                        <td>
+                            {{ $magazine->positions}}
                         </td>
                         <td style="width=10px">
-                            <a href="{{ route('machines.edit', $machine->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('machines.show', $machine->id) }}" class="btn btn-warning">VER</a>
-                            <a href="{{ route('magazines.create', $machine->id) }}" class="btn btn-warning">VER</a>
+                            <a href="{{ route('magazines.show', $magazine->id) }}" class="btn btn-warning">VER</a>
                         </td>
                     </tr>
                 @endforeach
@@ -45,9 +47,9 @@
     </div>
     <div class="card-footer">
         @if (isset($filters))
-        {!! $machines->appends($filters)->links() !!}
+        {!! $magazines->appends($filters)->links() !!}
         @else
-        {!! $machines->links() !!}
+        {!! $magazines->links() !!}
         @endif
     </div>
 </div>

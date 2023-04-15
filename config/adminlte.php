@@ -310,7 +310,7 @@ return [
 
         [
             'text' => 'Magazines',
-            'url'  => 'magazine',
+            'url'  => 'magazines',
             'icon' => 'fas fa-address-book',
             // 'can'  => 'profiles',
         ],

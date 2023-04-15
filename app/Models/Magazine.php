@@ -9,7 +9,7 @@ class Magazine extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'machine_id'];
+    protected $fillable = ['positions', 'machine_id'];
 
     public function machine()
     {

@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Magazine Routes
+Route::any('magazines/search', 'App\Http\Controllers\MagazineController@search')->name('magazines.search')->middleware('auth');
+Route::resource('magazines', 'App\Http\Controllers\MagazineController')->middleware('auth');
+
+
 // Tools Routes
 Route::any('tools/search', 'App\Http\Controllers\ToolController@search')->name('tools.search')->middleware('auth');
 Route::resource('tools', 'App\Http\Controllers\ToolController')->middleware('auth');
