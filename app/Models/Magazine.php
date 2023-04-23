@@ -15,4 +15,5 @@ class Magazine extends Model
     {
         return $this->belongsTo(Machine::class);
     }
+
 }

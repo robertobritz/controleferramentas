@@ -11,11 +11,15 @@ class Machine extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'positions_magazine',
+        'magazine_id',
     ];
 
     public function magazine()
     {
         return $this->belongsTo(Magazine::class);
     }
+
+    
 }

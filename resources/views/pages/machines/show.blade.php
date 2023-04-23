@@ -18,6 +18,9 @@
                 <li>
                     <strong>Descrição: </strong> {{ $machine->description}}
                 </li>
+                <li>
+                    <strong>Posições Magazine: </strong> {{ $machine->positions_magazine}}
+                </li>
             </ul>
 
             @include('pages.includes.alerts')

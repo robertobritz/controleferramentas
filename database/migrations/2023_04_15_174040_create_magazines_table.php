@@ -13,14 +13,19 @@ return new class extends Migration
     {
         Schema::create('magazines', function (Blueprint $table) {
             $table->id();
-            $table->integer('positions')->require;
-            $table->string('machine_name')->require;
+            $table->integer('position');
+            $table->string('machine_name');
+            $table->string('tool_name')->nullable();
             $table->unsignedBigInteger('machine_id')->require;
+            $table->unsignedBigInteger('tool_id')->nullable();
             $table->timestamps();
 
             $table->foreign('machine_id')
                         ->references('id')
                         ->on('machines');
+            $table->foreign('tool_id')
+                        ->references('id')
+                        ->on('tools');
         });
     }
 

@@ -21,6 +21,7 @@
             <tr>
                 <th>Nome Máquina</th>
                 <th>Descrição Máquina</th>
+                <th>Posições Magazine</th>
                 <th width="250px">Ação</th>
             </tr>
             </thead>
@@ -32,6 +33,9 @@
                         </td>
                         <td>
                             {{ $machine->description}}
+                        </td>
+                        <td>
+                            {{ $machine->positions_magazine}}
                         </td>
                         <td style="width=10px">
                             <a href="{{ route('magazines.create', $machine) }}" class="btn btn-success">Magazine</a>

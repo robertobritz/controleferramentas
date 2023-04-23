@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    {{-- <h1>Magazines <a href="{{ route('magazines.create')}}" class="btn btn-dark">ADD FERRAMENTA</a></h1> --}}
+    {{-- <h1>Magazines <a href="{{ route('magazines.create')}}" class="btn btn-dark">CRIAR MAGAZINE</a></h1> --}}
 @stop
 
 @section('content')
@@ -12,16 +12,16 @@
         <form action="{{ route('magazines.search')}}"  class="form form-inline">
             @csrf 
             <input type="text" name='filter' placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? ''}}">
-            <button type="submit" class="btn btn-dark">Filtrar</button>
+            <button type="submit" class="btn btn-dark">Filtrar por Máquina</button>
         </form>
     </div>
     <div class="card-body">
         <table class="table table-condensed">
            <thead>
             <tr>
-                <th>ID</th>
+                <th>Posição</th>
                 <th>Nomes da Máquina</th>
-                <th>Tamanho Magazine</th>
+                <th>Nome Ferramenta</th>
                 <th width="250px">Ação</th>
             </tr>
             </thead>
@@ -29,16 +29,17 @@
                 @foreach ($magazines as $magazine)
                     <tr>
                         <td>
-                            {{ $magazine->id}}
+                            {{ $magazine->position}}
                         </td>
                         <td>
                             {{ $magazine->machine_name}}
                         </td>
                         <td>
-                            {{ $magazine->positions}}
+                            {{ $magazine->tool_name}}
                         </td>
                         <td style="width=10px">
                             <a href="{{ route('magazines.show', $magazine->id) }}" class="btn btn-warning">VER</a>
+                            
                         </td>
                     </tr>
                 @endforeach
@@ -52,5 +53,8 @@
         {!! $magazines->links() !!}
         @endif
     </div>
+</div>
+<div class="card-footer">
+    
 </div>
 @stop

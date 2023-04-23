@@ -38,15 +38,18 @@ class MagazineController extends Controller
      */
     public function store(StoreUpdateMagazine $request)
     {
-        //dd($request->all());
-        
-        //$this->repository->create($request->all());
 
-        $magazine = new Magazine;
-        $magazine->positions = $request->positions;
-        $magazine->machine_id = $request->machine_id;
-        $magazine->machine_name = $request->machine_name; // Adiciona o valor do campo machine_name
-        $magazine->save();
+        $positions = $request->positions;
+        
+        for ($i=1; $i < ($positions+1) ; $i++) { 
+            
+            $magazine = new Magazine;
+            $magazine->position = $i;
+            $magazine->machine_id = $request->machine_id;
+            $magazine->machine_name = $request->machine_name; // Adiciona o valor do campo machine_name
+            $magazine->save();
+        }
+
 
         return redirect()->route('magazines.index');
     }
@@ -110,7 +113,7 @@ class MagazineController extends Controller
         $magazines = $this->repository
                             ->where(function($query) use ($request) {
                                 if ($request->filter) {
-                                    $query->where('name','LIKE',"%{$request->filter}%");
+                                    $query->where('machine_name','LIKE',"%{$request->filter}%");
                                 }
                             })
                             ->latest()

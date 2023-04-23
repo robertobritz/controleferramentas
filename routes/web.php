@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MagazineController;
+use App\Http\Controllers\MagazineToolController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+// Route::get('magazines/{id}/add-blank-rows', [MagazineController::class, 'addBlankRows'])->name('magazines.add-blank-rows');
 
 Route::get('magazines/create/{machine}', [MagazineController::class, 'create'])->name('magazines.create')->middleware('auth'); //correto
 Route::put('magazines/{url}', [MagazineController::class, 'update'])->name('magazines.update');

@@ -307,13 +307,13 @@ return [
             'icon' => 'fas fa-tools',
             // 'can'  => 'plans',
         ],
-
         [
             'text' => 'Magazines',
             'url'  => 'magazines',
             'icon' => 'fas fa-address-book',
             // 'can'  => 'profiles',
         ],
+
     ],
 
     /*
