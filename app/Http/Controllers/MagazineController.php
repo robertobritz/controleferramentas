@@ -50,7 +50,10 @@ class MagazineController extends Controller
             $magazine->machine_name = $request->machine_name; // Adiciona o valor do campo machine_name
             $magazine->save();
         }
-
+        $machine = Machine::find($request->machine_id);
+        $machine->update([
+            'has_magazine' => true,
+        ]);
 
         return redirect()->route('magazines.index');
     }

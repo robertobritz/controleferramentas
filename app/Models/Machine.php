@@ -14,6 +14,7 @@ class Machine extends Model
         'description',
         'positions_magazine',
         'magazine_id',
+        'has_magazine',
     ];
 
     public function magazine()

@@ -31,7 +31,7 @@
             <form action="{{ route('magazines.destroy', $magazine->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>DELETAR O PRODUTO {{ $magazine->name}}</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>DELETAR O MAGAZINE {{ $magazine->name}}</button>
             </form>
         </div>
     </div>

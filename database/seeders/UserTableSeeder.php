@@ -24,19 +24,24 @@ class UserTableSeeder extends Seeder
         Machine::create([
             'name' => 'Máquina 01',
             'description' => 'Máquina Mortal',
-            'positions_magazine' => 10,
+            'positions_magazine' => 5,
         ]);
 
         Machine::create([
             'name' => 'Máquina 02',
             'description' => 'Máquina Mortal2',
-            'positions_magazine' => 20,
+            'positions_magazine' => 10,
         ]);
 
         Tool::create([
             'description' => 'Ferramenta 01',
             'code_system' => '0001',
             'supplier' => 'Zé da esquina',
+        ]);
+        Tool::create([
+            'description' => 'Ferramenta 02',
+            'code_system' => '0002',
+            'supplier' => 'Zé da esquina2',
         ]);
     }
 }

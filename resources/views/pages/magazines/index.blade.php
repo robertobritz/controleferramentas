@@ -38,8 +38,13 @@
                             {{ $magazine->tool_name}}
                         </td>
                         <td style="width=10px">
-                            <a href="{{ route('magazines.show', $magazine->id) }}" class="btn btn-warning">VER</a>
-                            <a href="{{ route('magazines.addTool', $magazine->id) }}" class="btn btn-warning">AddFerramenta</a>
+                            {{-- <a href="{{ route('magazines.show', $magazine->id) }}" class="btn btn-warning">VER</a> --}}
+                            @if ($magazine->tool_name == null)
+                            <a href="{{ route('magazines.addTool', $magazine->id) }}" class="btn btn-info">AddFerramenta</a>
+                            @else
+                            <a href="{{ route('magazines.addTool', $magazine->id) }}" class="btn disabled">AddFerramenta</a>    
+                            @endif
+
                             
                         </td>
                     </tr>

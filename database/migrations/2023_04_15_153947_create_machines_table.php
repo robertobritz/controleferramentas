@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->integer('positions_magazine')->nullable();
             $table->unsignedBigInteger('magazine_id')->nullable();
+            $table->boolean('has_magazine')->default(false);
             $table->timestamps();
 
         });

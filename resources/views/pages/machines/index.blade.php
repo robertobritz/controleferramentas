@@ -38,7 +38,11 @@
                             {{ $machine->positions_magazine}}
                         </td>
                         <td style="width=10px">
-                            <a href="{{ route('magazines.create', $machine) }}" class="btn btn-success">Criar Magazine</a>
+                            @if ($machine->has_magazine == false)
+                            <a href="{{ route('magazines.create', $machine) }}" class="btn btn-success">Criar Magazine</a>    
+                            @else
+                            <a href="{{ route('magazines.create', $machine) }}" class="btn disabled">Criar Magazine</a>  
+                            @endif
                             <a href="{{ route('machines.edit', $machine->id) }}" class="btn btn-info">Editar</a>
                             <a href="{{ route('machines.show', $machine->id) }}" class="btn btn-warning">Ver</a>
                         </td>
