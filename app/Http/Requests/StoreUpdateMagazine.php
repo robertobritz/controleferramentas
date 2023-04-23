@@ -22,8 +22,8 @@ class StoreUpdateMagazine extends FormRequest
     public function rules(): array
     {
         return [
-            'positions' => 'required',
-            'machine_id' => 'required|unique:magazines,machine_id',
+            'position' => 'required',
+            // 'machine_id' => 'required|unique:magazines,machine_id',
             'machine_name' => 'required',
         ];
     }

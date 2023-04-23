@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateMagazine;
 use App\Models\Machine;
 use App\Models\Magazine;
+use App\Models\Tool;
 use Illuminate\Http\Request;
 
 class MagazineController extends Controller
@@ -39,7 +40,7 @@ class MagazineController extends Controller
     public function store(StoreUpdateMagazine $request)
     {
 
-        $positions = $request->positions;
+        $positions = $request->position;
         
         for ($i=1; $i < ($positions+1) ; $i++) { 
             
@@ -71,11 +72,11 @@ class MagazineController extends Controller
      */
     public function edit(string $id)
     {
-        if (!$magazine = $this->repository->find($id)) {
-            return redirect()->back();
-        }
+        // if (!$magazine = $this->repository->find($id)) {
+        //     return redirect()->back();
+        // }
 
-        return view('pages.magazines.edit', compact('magazine'));
+        // return view('pages.magazines.edit', compact('magazine'));
     }
 
     /**
@@ -83,13 +84,13 @@ class MagazineController extends Controller
      */
     public function update(StoreUpdateMagazine $request, string $id)
     {
-        if (!$magazine = $this->repository->find($id)) {
-            return redirect()->back();
-        }
+        // if (!$magazine = $this->repository->find($id)) {
+        //     return redirect()->back();
+        // }
 
-        $magazine->update($request->all());
+        // $magazine->update($request->all());
 
-        return redirect()->route('magazines.index');
+        // return redirect()->route('magazines.index');
     }
 
     /**
@@ -120,5 +121,37 @@ class MagazineController extends Controller
                             ->paginate();
 
         return view('pages.magazines.index', compact('magazines', 'filters'));
+    }
+
+    public function addTool(Tool $tool, string $id){
+
+        if (!$magazine = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        $tools = $tool->pluck('description');
+        //dd($tools);
+
+        return view('pages.magazines.addTool', compact(['tools', 'magazine']));
+
+    }
+
+    public function toolUpdate(StoreUpdateMagazine $request, string $id)
+    {
+        if (!$magazine = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        $tool = Tool::where('description', $request->tool_name)->first();
+
+        $magazine->update([
+            'tool_id' => $tool->id,
+            'position' => $request->position,
+            'machine_id' => $request->machine_id,
+            'tool_name' => $request->tool_name,
+            'machine_name' => $request->machine_name, 
+        ]);
+
+        return redirect()->route('magazines.index');
     }
 }

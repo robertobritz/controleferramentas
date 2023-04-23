@@ -17,7 +17,7 @@
         
         <div class="form-group">
             <label>Posições Magazine:</label>
-            <input type="text" name="positions" class="form-control" placeholder="Quantidade de posições" value="{{ $machine->positions_magazine ?? old('position')}}" readonly>
+            <input type="text" name="position" class="form-control" placeholder="Quantidade de posições" value="{{ $machine->positions_magazine ?? old('position')}}" readonly>
         </div>
         <div class="form-group">
             <label>Máquina:</label>

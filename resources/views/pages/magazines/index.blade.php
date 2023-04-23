@@ -39,6 +39,7 @@
                         </td>
                         <td style="width=10px">
                             <a href="{{ route('magazines.show', $magazine->id) }}" class="btn btn-warning">VER</a>
+                            <a href="{{ route('magazines.addTool', $magazine->id) }}" class="btn btn-warning">AddFerramenta</a>
                             
                         </td>
                     </tr>

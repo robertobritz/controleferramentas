@@ -18,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// Route::get('magazines/{id}/add-blank-rows', [MagazineController::class, 'addBlankRows'])->name('magazines.add-blank-rows');
 
 Route::get('magazines/create/{machine}', [MagazineController::class, 'create'])->name('magazines.create')->middleware('auth'); //correto
+Route::post('magazines/{id}', [MagazineController::class, 'toolUpdate'])->name('magazines.toolUpdate');
+Route::get('magazines/addTool/{id}', [MagazineController::class, 'addTool'])->name('magazines.addTool')->middleware('auth'); //correto
 Route::put('magazines/{url}', [MagazineController::class, 'update'])->name('magazines.update');
 Route::get('magazines/{url}/edit', [MagazineController::class, 'edit'])->name('magazines.edit');
 Route::any('magazines/search', [MagazineController::class, 'search'])->name('magazines.search');

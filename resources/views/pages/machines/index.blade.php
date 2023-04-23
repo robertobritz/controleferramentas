@@ -22,7 +22,7 @@
                 <th>Nome Máquina</th>
                 <th>Descrição Máquina</th>
                 <th>Posições Magazine</th>
-                <th width="250px">Ação</th>
+                <th width="350px">Ação</th>
             </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@
                             {{ $machine->positions_magazine}}
                         </td>
                         <td style="width=10px">
-                            <a href="{{ route('magazines.create', $machine) }}" class="btn btn-success">Magazine</a>
+                            <a href="{{ route('magazines.create', $machine) }}" class="btn btn-success">Criar Magazine</a>
                             <a href="{{ route('machines.edit', $machine->id) }}" class="btn btn-info">Editar</a>
                             <a href="{{ route('machines.show', $machine->id) }}" class="btn btn-warning">Ver</a>
                         </td>
