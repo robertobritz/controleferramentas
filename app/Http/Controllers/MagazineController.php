@@ -7,6 +7,7 @@ use App\Models\Machine;
 use App\Models\Magazine;
 use App\Models\Tool;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MagazineController extends Controller
 {
@@ -21,7 +22,12 @@ class MagazineController extends Controller
 
     public function index()
     {
-        $magazines = $this->repository->latest()->paginate();
+        $magazines = DB::table('magazines') // Serve para criar uma nova coluna chamada machine_name, fazendo a associação entre a Maquina e o Magazine
+            ->join('machines', 'magazines.machine_id', '=', 'machines.id')
+            ->select('magazines.*', 'machines.name as machine_name')
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
 
         return view('pages.magazines.index', compact('magazines'));
     }

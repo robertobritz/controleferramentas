@@ -32,7 +32,7 @@
                             {{ $magazine->position}}
                         </td>
                         <td>
-                            {{ $magazine->machine_name}}
+                            {{ $magazine->machine_name }}
                         </td>
                         <td>
                             {{ $magazine->tool_name}}

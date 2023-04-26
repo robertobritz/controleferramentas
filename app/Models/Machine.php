@@ -19,7 +19,7 @@ class Machine extends Model
 
     public function magazine()
     {
-        return $this->belongsTo(Magazine::class);
+        return $this->hasOne(Magazine::class);
     }
 
     
