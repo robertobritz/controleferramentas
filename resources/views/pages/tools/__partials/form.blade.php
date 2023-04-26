@@ -5,6 +5,10 @@
     <input type="text" name="description" class="form-control" placeholder="Descrição" value="{{ $tool->description ?? old('description')}}">
 </div>
 <div class="form-group">
+    <label>* Imagem:</label>
+    <input type="file" name="image" class="form-control">
+</div>
+<div class="form-group">
     <label>Código do Sistema:</label>
     <input type="text" name="code_system" class="form-control" placeholder="Descrição" value="{{ $tool->code_system ?? old('code_system')}}">
 </div>

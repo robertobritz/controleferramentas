@@ -19,6 +19,7 @@
         <table class="table table-condensed">
            <thead>
             <tr>
+                <th>Image</th>
                 <th>Descrição</th>
                 <th>Código Sistema</th>
                 <th>Fornecedor</th>
@@ -28,6 +29,9 @@
             <tbody>
                 @foreach ($tools as $tool)
                     <tr>
+                        <td>
+                            <img src="{{ url("storage/$tool->image") }}" alt="{{ $tool->description}}" style="max-width: 90px">
+                        </td>
                         <td>
                             {{ $tool->description}}
                         </td>

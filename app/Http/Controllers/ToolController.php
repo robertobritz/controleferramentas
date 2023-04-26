@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateTool;
 use App\Models\Tool;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ToolController extends Controller
 {
@@ -39,7 +40,15 @@ class ToolController extends Controller
      */
     public function store(StoreUpdateTool $request)
     {
-        $this->repository->create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('image') && $request->image->isValid()){
+            $data['image'] = $request->image->store("tools/", 'public');
+        }
+
+        //dd($data['image']);
+
+        $this->repository->create($data);
 
         return redirect()->route('tools.index');
     }
@@ -77,7 +86,17 @@ class ToolController extends Controller
             return redirect()->back();
         }
 
-        $tool->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('image') && $request->image->isValid()){
+            if (Storage::disk('public')->exists($tool->image)){
+                Storage::disk('public')->delete($tool->image);
+           }
+        }
+
+        $data['image'] = $request->image->store("tools/", 'public');
+
+        $tool->update($data);
 
         return redirect()->route('tools.index');
     }
@@ -89,6 +108,10 @@ class ToolController extends Controller
     {
         if (!$tool = $this->repository->find($id)) {
             return redirect()->back();
+        }
+
+        if (Storage::disk('public')->exists($tool->image)){
+            Storage::disk('public')->delete($tool->image);
         }
         
         $tool->delete();

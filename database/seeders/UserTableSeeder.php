@@ -35,11 +35,13 @@ class UserTableSeeder extends Seeder
 
         Tool::create([
             'description' => 'Ferramenta 01',
+            'image' => 'tools//1.webp',
             'code_system' => '0001',
             'supplier' => 'Zé da esquina',
         ]);
         Tool::create([
             'description' => 'Ferramenta 02',
+            'image' => 'tools//2.webp',
             'code_system' => '0002',
             'supplier' => 'Zé da esquina2',
         ]);
